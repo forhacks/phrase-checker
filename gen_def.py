@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 import requests, time
 from xml.etree import ElementTree
 from multiprocessing import Pool
@@ -32,7 +34,7 @@ def get_ox_def(f_word):
     except ValueError:
         return None
 
-    return j["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["definitions"][0]
+    return j["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["definitions"][0].replace(u"–", "-")
 
 
 def get_mw_def(f_word):
@@ -43,7 +45,7 @@ def get_mw_def(f_word):
 
     try:
         tree = ElementTree.fromstring(r.content)
-        return tree.find('entry').find('sens').find('mc').text
+        return tree.find('entry').find('sens').find('mc').text.replace(u"–", "-")
     except AttributeError:
         return None
 
@@ -67,23 +69,23 @@ p = Pool()
 out = open('gen_def.txt', 'a')
 interval = 5
 
-for i in range(765, 5000, interval):
+for i in range(1900, 5000, interval):
 
     print 'Starting words', i+1, '-', i+interval
     a = [x for x in p.map(get_pair, word_list[i:i+interval]) if x is not None]
     tries = 0
 
-    while len(a) == 0 and tries <= 20:
+    while len(a) == 0 and tries <= 4:
         print 'Received no results. Retrying...'
-        time.sleep(5)
+        time.sleep(20)
         a = [x for x in p.map(get_pair, word_list[i:i+interval]) if x is not None]
         tries += 1
-    if tries == 20:
-        print 'Continuing after 20 tries.'
+    if tries == 4:
+        print 'Continuing after 4 tries.'
 
     out.write('\n'.join('\n'.join(x + ('1',)) for x in a))
     out.write('\n')
-    print 'Finished words', i, '-', i+interval, 'with', len(a), 'results'
+    print 'Finished words', i+1, '-', i+interval, 'with', len(a), 'results'
     print
 
 out.close()
