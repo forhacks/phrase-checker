@@ -7,7 +7,7 @@ max_len = 25
 word2vec_size = 300
 input_size = max_len * word2vec_size * 2
 epochs = 1000
-learning_rate = 0.000001
+learning_rate = 0.0000005
 
 
 def process_def(definition):
@@ -82,8 +82,24 @@ test_x = x
 
 test_y = y
 
-z = x.dot(w.transpose()) + b
+z = test_x.dot(w.transpose()) + b
 a = sigmoid(z)
 
 print(a)
-print(y)
+print(test_y)
+
+print
+print 'Author Inputted Definitions'
+print
+
+def1 = "very good"
+def2 = "very decent"
+
+test_x = [[process_def(def1)], [process_def(def2)]]
+test_x = [[model.wv[word] for word in a] for a in test_x]
+test_x = np.append(test_x[0], test_x[1])
+
+z = test_x.dot(w.transpose()) + b
+a = sigmoid(z)
+
+print(a)
