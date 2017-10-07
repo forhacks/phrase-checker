@@ -2,9 +2,13 @@ import requests, time
 from xml.etree import ElementTree
 from multiprocessing import Pool
 
-ox_id = "ENTER_OX_APP_ID"
-ox_key = "ENTER_OX_APP_KEY"
-mw_key = "ENTER_MW_THESAURUS_KEY"
+ox_id = ""  # ENTER_OX_APP_ID
+ox_key = ""  # ENTER_OX_APP_KEY
+mw_key = ""  # ENTER_MW_THESAURUS_KEY
+
+assert ox_id != ""
+assert ox_key != ""
+assert mw_key != ""
 
 headers = {
     "Accept": "application/json",
