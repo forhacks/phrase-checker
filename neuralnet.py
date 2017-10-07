@@ -92,8 +92,8 @@ print
 print 'Author Inputted Definitions'
 print
 
-def1 = "very good"
-def2 = "very decent"
+def1 = "being guided by right and wrong"
+def2 = "being guided by what is right"
 
 test_x = [[process_def(def1)], [process_def(def2)]]
 test_x = [[model.wv[word] for word in a] for a in test_x]
