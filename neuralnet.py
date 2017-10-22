@@ -6,21 +6,23 @@ import re
 max_len = 25
 word2vec_size = 300
 input_size = max_len * word2vec_size * 2
-epochs = 1000
+epochs = 100
 learning_rate = 0.0000005
 
 
 def process_def(definition):
     if len(definition) == 1:
         return definition
-    definition = re.sub("[^a-zA-Z\s]", " ", definition)
-    def_arr = np.array(definition.split(), dtype="S15")
+    definition = re.sub("[^a-zA-Z\s]", " ", definition).split()
+    definition = [a for a in definition if len(a) > 2]
+    def_arr = np.array(definition, dtype="S15")
     word_count = len(def_arr)
     stretch = ([max_len/word_count + 1] * (max_len % word_count))
     stretch.extend([max_len/word_count] * (word_count - max_len % word_count))
     def_arr = np.repeat(def_arr, stretch)
     return def_arr
 
+print '-- READING DATA --'
 
 # read in defs
 with open("definitions.txt") as f:
@@ -30,10 +32,10 @@ with open("definitions.txt") as f:
 data = [process_def(x.strip()) for x in data]
 
 # reorganize into [[def 1, def 2, 1/0], [def 1, def 2, 1/0], ...]
-data = np.reshape(data, (-1, 3))
+data = np.reshape(data, (-1, 3)).T
 
-x = data[:len(data)]
-y = np.array([map(int, data.T[len(data[0])-1])])
+x = data[:2].T
+y = np.array([map(int, data[2:][0])])
 
 model = Word2Vec.load("word2vec model/trained/trained.w2v")
 
@@ -71,7 +73,9 @@ for i in range(epochs):
     b -= learning_rate * np.sum(dz) / len(x)
 
     # print loss
-    print "Loss: " + str(j)
+    print "\r" + str(i) + "/" + str(epochs) + \
+          " [" + ("#" * ((i * 10) / epochs)) + ("." * (10 - ((i * 10) / epochs))) + \
+          "] Loss: " + str(j),
 
 print
 print '-- STARTING TESTING --'
@@ -92,7 +96,7 @@ print
 print 'Author Inputted Definitions'
 print
 
-def1 = "being guided by right and wrong"
+def1 = "cats"
 def2 = "being guided by what is right"
 
 test_x = [[process_def(def1)], [process_def(def2)]]

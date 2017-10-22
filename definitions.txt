@@ -220,9 +220,6 @@ being far along in development
 for that reason; consequently
 for this or that reason
 1
-relating to or professing Christianity or its teachings
-a name that is placed before one's family name
-1
 perceive the intended meaning of (words, a language, or a speaker)
 to form an opinion or reach a conclusion through reasoning and information
 1
@@ -489,9 +486,6 @@ causing great emotional or mental stimulation
 1
 relevant or appropriate
 capable of being put to use or account
-1
-relating to ancient Greek or Latin literature, art, or culture
-based on customs usually handed down from a previous generation
 1
 devoted to a task or purpose
 firm in one's allegiance to someone or something
@@ -1075,9 +1069,6 @@ a feeling of strong or constant regard for and dedication to someone
 an arrangement to meet someone at a particular time and place
 the state or fact of being chosen for a position or duty
 1
-a storm with a violent wind, in particular a tropical cyclone in the Caribbean.
-a state of noisy, confused activity
-1
 beneath the surface of the ground
 undertaken or done so as to escape being observed or known by others
 1
@@ -1095,9 +1086,6 @@ to make a part of a body or system
 1
 a statement acknowledging the truth of something
 an open declaration of something (as a fault or the commission of an offense) about oneself
-1
-(in the UK) the highest legislature, consisting of the Sovereign, the House of Lords, and the House of Commons
-the highest lawmaking body of a political unit
 1
 a particular kind of matter with uniform properties
 the basic elements from which something can be developed
@@ -1837,12 +1825,6 @@ in addition to what has been said
 friendly association, especially with people who share one's interests
 a friendly relationship marked by ready communication and mutual understanding
 1
-relating to the reign of Queen Victoria
-given to or marked by very conservative standards regarding personal behavior or morals
-1
-the name of two books of the Bible, recording the history of Israel and Judah until the return from Exile (536 BC).
-a relating of events usually in the order in which they happened
-1
 give a share or a unit of (something) to each of a number of recipients
 to arrange or assign according to type
 1
@@ -1906,9 +1888,6 @@ having an opinion that does not agree with truth or the facts
 the ability to see, hear, or become aware of something through the senses
 the ability to understand inner qualities or relationships
 1
-the revival of European art and literature under the influence of classical models in the 14th-16th centuries.
-a period of high artistic or cultural development
-1
 an authoritative order.
 a rule of conduct or action laid down by a governing authority and especially a legislature
 1
@@ -1917,9 +1896,6 @@ according to the rules of logic
 1
 a thing that is accepted as true or as certain to happen, without proof
 something taken as being true or factual and used as a starting point for a course of action or reasoning
-1
-the holy city of the Jews, sacred also to Christians and Muslims, lying in the Judaean hills about 30 km (20 miles) from the River Jordan; population 763,600 (est. 2008).
-a dwelling place of perfect happiness for the soul after death
 1
 the action of inventing something, typically a process or device
 something (as a device) created for the first time through the use of the imagination
@@ -1944,9 +1920,6 @@ the characteristic peculiarities and technicalities of something
 1
 the throwing back by a body or surface of light, heat, or sound without absorbing it
 a briefly expressed opinion
-1
-the quality of being concerned with the human spirit or soul as opposed to material or physical things
-the group ordained to perform clerical functions in the Christian church
 1
 a general agreement
 the state of being of one opinion about something
@@ -2055,9 +2028,6 @@ a feeling of great approval and liking
 1
 after a particular thing has happened; afterwards
 following in time or place
-1
-the protective care of God or of nature as a spiritual power
-careful management of material resources
 1
 a limiting condition or measure, especially a legal one
 something that limits one's freedom of action or choice
@@ -2704,21 +2674,24 @@ determined by something else
 relating to or based on mental concepts
 dealing with or expressing a quality or idea
 1
-any of the world's main continuous expanses of land (Europe, Asia, Africa, North and South America, Australia, Antarctica).
-given to or marked by restraint in the satisfaction of one's appetites
-1
 used euphemistically to indicate that someone suffers disability in a specified respect
 deprived of the power to perform one or more natural bodily activities
 1
 a limitation or restriction
 the checking of one's true feelings and impulses when dealing with others
-1
-the action of insulating something
+0
+the action of warming up something
 the state of being alone or kept apart from others
-1
+0
 the action of breaking the terms of a law, agreement, etc.; violation
 a failure to uphold the requirements of law, duty, or obligation
 1
 based on or influenced by personal feelings, tastes, or opinions
 of, relating to, or belonging to a single person
-1
+0
+based on or influenced by personal feelings, tastes, or opinions
+a failure to uphold the requirements of law, duty, or obligation
+0
+the state of being alone or kept apart from others
+the state of being free from tension and anxiety
+0

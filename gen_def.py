@@ -1,11 +1,15 @@
 # encoding: utf-8
 
+# TODO:
+# do words that are not same
+# save in array.
+
 import requests, time
 from xml.etree import ElementTree
 from multiprocessing import Pool
 
-ox_id = ""  # ENTER_OX_APP_ID
-ox_key = ""  # ENTER_OX_APP_KEY
+ox_id = "aa0b9797"  # ENTER_OX_APP_ID
+ox_key = "b8da3ef45aa7394e62d3d73fe9b197c5"  # ENTER_OX_APP_KEY
 mw_key = ""  # ENTER_MW_THESAURUS_KEY
 
 assert ox_id != ""
@@ -45,6 +49,7 @@ def get_mw_def(f_word):
 
     try:
         tree = ElementTree.fromstring(r.content)
+
         return tree.find('entry').find('sens').find('mc').text.replace(u"–", "-")
     except AttributeError:
         return None
