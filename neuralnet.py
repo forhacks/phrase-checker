@@ -15,14 +15,16 @@ def process_def(definition):
         return definition
     definition = re.sub("[^a-zA-Z\s]", " ", definition).split()
     definition = [a for a in definition if len(a) > 2]
+
     def_arr = np.array(definition, dtype="S15")
     word_count = len(def_arr)
+
     stretch = ([max_len/word_count + 1] * (max_len % word_count))
     stretch.extend([max_len/word_count] * (word_count - max_len % word_count))
     def_arr = np.repeat(def_arr, stretch)
     return def_arr
 
-print '-- READING DATA --'
+print('-- READING DATA --')
 
 # read in defs
 with open("definitions.txt") as f:
@@ -51,7 +53,7 @@ def sigmoid(f_a):
     return 1 / (1 + np.exp(-f_a))
 
 
-print '-- STARTING TRAINING --'
+print('-- STARTING TRAINING --')
 
 for i in range(epochs):
     # init loss
@@ -72,14 +74,14 @@ for i in range(epochs):
     w -= learning_rate * (np.sum(np.dot(dz, x), axis=0) / len(x))
     b -= learning_rate * np.sum(dz) / len(x)
 
-    # print loss
-    print "\r" + str(i) + "/" + str(epochs) + \
+    # print(loss)
+    print("\r" + str(i) + "/" + str(epochs) + \
           " [" + ("#" * ((i * 10) / epochs)) + ("." * (10 - ((i * 10) / epochs))) + \
-          "] Loss: " + str(j),
+          "] Loss: " + str(j))
 
-print
-print '-- STARTING TESTING --'
-print
+print()
+print('-- STARTING TESTING --')
+print()
 
 # repeat above steps for test data
 test_x = x
@@ -92,9 +94,9 @@ a = sigmoid(z)
 print(a)
 print(test_y)
 
-print
-print 'Author Inputted Definitions'
-print
+print()
+print('Author Inputted Definitions')
+print()
 
 def1 = "cats"
 def2 = "being guided by what is right"
