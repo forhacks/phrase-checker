@@ -16,13 +16,22 @@ def process_def(definition):
     definition = re.sub("[^a-zA-Z\s]", " ", definition).split()
     definition = [a for a in definition if len(a) > 2]
 
-    def_arr = np.array(definition, dtype="S15")
+    def_arr = np.array(definition)
     word_count = len(def_arr)
 
     stretch = ([max_len/word_count + 1] * (max_len % word_count))
     stretch.extend([max_len/word_count] * (word_count - max_len % word_count))
     def_arr = np.repeat(def_arr, stretch)
+
     return def_arr
+
+
+def getwv(word):
+    try:
+        return model.wv[word]
+    except KeyError:
+        return None
+
 
 print('-- READING DATA --')
 
@@ -41,8 +50,8 @@ y = np.array([map(int, data[2:][0])])
 
 model = Word2Vec.load("word2vec model/trained/trained.w2v")
 
-x = [[model.wv[word] for word in a] for a in x]
-x = np.array([np.append(a[0], a[1]) for a in x])
+x = [[[getwv(word) for word in defn] for defn in a] for a in x]
+x = np.array(x)
 
 # init weights and the bias
 w = np.zeros((1, input_size))
@@ -58,6 +67,9 @@ print('-- STARTING TRAINING --')
 for i in range(epochs):
     # init loss
     j = 0
+
+    print(x)
+    print(w)
 
     # multiply inputs by weights and and bias
     z = x.dot(w.transpose()) + b
@@ -75,8 +87,8 @@ for i in range(epochs):
     b -= learning_rate * np.sum(dz) / len(x)
 
     # print(loss)
-    print("\r" + str(i) + "/" + str(epochs) + \
-          " [" + ("#" * ((i * 10) / epochs)) + ("." * (10 - ((i * 10) / epochs))) + \
+    print("\r" + str(i) + "/" + str(epochs) +
+          " [" + ("#" * int((i * 10) / epochs)) + ("." * int(10 - ((i * 10) / epochs))) +
           "] Loss: " + str(j))
 
 print()
@@ -92,7 +104,6 @@ z = test_x.dot(w.transpose()) + b
 a = sigmoid(z)
 
 print(a)
-print(test_y)
 
 print()
 print('Author Inputted Definitions')
@@ -102,7 +113,7 @@ def1 = "cats"
 def2 = "being guided by what is right"
 
 test_x = [[process_def(def1)], [process_def(def2)]]
-test_x = [[model.wv[word] for word in a] for a in test_x]
+test_x = [[getwv(word) for word in a] for a in test_x]
 test_x = np.append(test_x[0], test_x[1])
 
 z = test_x.dot(w.transpose()) + b
